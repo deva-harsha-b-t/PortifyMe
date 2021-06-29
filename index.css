@@ -1,0 +1,48 @@
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+body {
+  margin: 0;
+}
+.absolute {
+  position: absolute;
+  left: 50%;
+  top: 20%;
+}
+.text-white {
+  font-size: 1.2rem;
+  color: white;
+  text-align: center;
+}
+.center-text {
+  box-shadow: 10px 10px;
+  border: 2px solid rgb(82, 213, 236);
+  border-radius: 20%;
+  transition: 0.3s;
+  padding: 1.5rem;
+  position: relative;
+  left: -50%;
+}
+.center-text:hover {
+  box-shadow: 5px 5px 2px 5px;
+  border-radius: 30%;
+}
+.btn {
+  border: 2px solid rgb(207, 112, 191);
+  border-radius: 0.3rem;
+  font-size: large;
+  color: white;
+  background: none;
+  transition: 0.3s;
+}
+.btn:hover {
+  background-color: aqua;
+  color: black;
+}
+.btn:active {
+  background-color: rgb(109, 179, 179);
+}
