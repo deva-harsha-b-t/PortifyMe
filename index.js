@@ -1,5 +1,4 @@
-import * as THREE from 'three'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+import * as THREE from 'https://unpkg.com/three@0.126.1/build/three.module.js'
 import gsap from "https://cdn.skypack.dev/gsap"
 
 const world = {
