@@ -11,7 +11,10 @@ let newBird;
 let mMouse;
 let mConstraint;
 let slingshot
+let isnewBall = true;
 const { Engine, World } = Matter
+
+
 
 function setup() {
     canvas = createCanvas(innerWidth, innerHeight);
@@ -63,17 +66,26 @@ function setup() {
 }
 function keyPressed() {
     if (key == ' ') {
-        World.remove(world, bird.body);
-        bird = new Bird(400, 200, 35);
-        slingshot.attach(bird.body);
+        getNewball()
 
     }
 }
 
 function mouseReleased() {
-    setTimeout(() => {
-        slingshot.fly();
-    }, 100);
+    if(mouseY >= slingshot.sling.pointA.y || mouseX <= slingshot.sling.pointA.x){
+        setTimeout(() => {
+            slingshot.fly();
+        }, 100);
+    }
+
+
+}
+function getNewball(){
+    isnewBall = false;
+    World.remove(world, bird.body);
+    bird = new Bird(400, 200, 35);
+    slingshot.attach(bird.body);
+
 }
 function draw() {
     background(0);
