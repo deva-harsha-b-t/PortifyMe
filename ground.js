@@ -1,6 +1,6 @@
 class Ground {
     constructor(x, y, w, h) {
-        this.body = Matter.Bodies.rectangle(x, y, w, h, { isStatic: true });
+        this.body = Matter.Bodies.rectangle(x, y, w, h, { isStatic: true,labels:"ground" });
         this.w = w;
         this.h = h;
         World.add(world, this.body);

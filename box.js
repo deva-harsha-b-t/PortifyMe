@@ -1,6 +1,20 @@
 class Box {
-    constructor(x, y, w, h) {
-        this.body = Matter.Bodies.rectangle(x, y, w, h);
+    constructor(x, y, w, h , boxGroup) {
+        switch(boxGroup){
+            case 1:this.body = Matter.Bodies.rectangle(x, y, w, h,{
+                labels: "box1"
+            });
+            break;
+            case 2:this.body = Matter.Bodies.rectangle(x, y, w, h,{
+                labels: "box2"
+            });
+            break;
+            case 3:this.body = Matter.Bodies.rectangle(x, y, w, h,{
+                labels: "box3"
+            });
+            break;
+        }
+        
         this.w = w;
         this.h = h;
         World.add(world, this.body);

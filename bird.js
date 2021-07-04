@@ -1,14 +1,17 @@
 class Bird {
     constructor(x, y, d) {
-        this.body = Matter.Bodies.circle(x, y, d / 2);
+        this.body = Matter.Bodies.circle(x, y, d / 2,{
+            labels:"bird"
+        });
         this.d = d;
         World.add(world, this.body);
+        Matter.Body.setMass(this.body, this.body.mass*8)
 
     }
 
     show() {
         const pos = this.body.position;
-        const angle = this.body.angle;
+        const angle = this.body.angle
         push();
         translate(pos.x, pos.y);
         rotate(angle);

@@ -11,7 +11,6 @@ let newBird;
 let mMouse;
 let mConstraint;
 let slingshot
-let isnewBall = true;
 const { Engine, World } = Matter
 
 
@@ -31,21 +30,21 @@ function setup() {
         if (i != 0 && i % 3 == 0) {
             j++;
         }
-        box1[i] = new Box(width - 100 - j * 43, height - 20 - 150, 40, 40);
+        box1[i] = new Box(width - 100 - j * 43, height - 20 - 150, 40, 40, 1);
 
     }
     for (let i = 0, j = 0; i < 9; i++) {
         if (i != 0 && i % 3 == 0) {
             j++;
         }
-        box2[i] = new Box(width - 100 - j * 43, height - 200 - 150, 40, 40);
+        box2[i] = new Box(width - 100 - j * 43, height - 200 - 150, 40, 40, 2);
 
     }
     for (let i = 0, j = 0; i < 9; i++) {
         if (i != 0 && i % 3 == 0) {
             j++;
         }
-        box3[i] = new Box(width - 100 - j * 43, height - 400 - 150, 40, 40);
+        box3[i] = new Box(width - 100 - j * 43, height - 400 - 150, 40, 40, 3);
 
     }
 
@@ -59,6 +58,15 @@ function setup() {
         constraint: {
             render: { visible: true }
         }
+    })
+
+    Matter.Events.on(engine,'collisionStart',function(event){
+        let pairs = event.pairs;
+        pairs.forEach(function(pair){
+            if(pair.bodyB.labels==="bird"){
+                document.getElementById("boxLabel").innerHTML = "collision with : "+pair.bodyA.labels
+            }
+        })
     })
     World.add(world, mConstraint)
 
@@ -81,7 +89,6 @@ function mouseReleased() {
 
 }
 function getNewball(){
-    isnewBall = false;
     World.remove(world, bird.body);
     bird = new Bird(400, 200, 35);
     slingshot.attach(bird.body);
