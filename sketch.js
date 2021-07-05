@@ -30,21 +30,21 @@ function setup() {
         if (i != 0 && i % 3 == 0) {
             j++;
         }
-        box1[i] = new Box(width - 100 - j * 43, height - 20 - 150, 40, 40, 1);
+        box1[i] = new Box(width - 100 - j * 43, height - 20 - 150, 40, 40, 1 , 'red');
 
     }
     for (let i = 0, j = 0; i < 9; i++) {
         if (i != 0 && i % 3 == 0) {
             j++;
         }
-        box2[i] = new Box(width - 100 - j * 43, height - 200 - 150, 40, 40, 2);
+        box2[i] = new Box(width - 100 - j * 43, height - 200 - 150, 40, 40, 2 , 'green');
 
     }
     for (let i = 0, j = 0; i < 9; i++) {
         if (i != 0 && i % 3 == 0) {
             j++;
         }
-        box3[i] = new Box(width - 100 - j * 43, height - 400 - 150, 40, 40, 3);
+        box3[i] = new Box(width - 100 - j * 43, height - 400 - 150, 40, 40, 3 , 'blue');
 
     }
 
@@ -64,7 +64,23 @@ function setup() {
         let pairs = event.pairs;
         pairs.forEach(function(pair){
             if(pair.bodyB.labels==="bird"){
-                document.getElementById("boxLabel").innerHTML = "collision with : "+pair.bodyA.labels
+                switch(pair.bodyA.labels){
+                    case "box1":
+                        showpopup1();    
+                        getNewball(2000);
+                        break;
+                    case "box2":
+                        showpopup2();
+                        getNewball(2000);
+                        break;
+                    case "box3":
+                        showpopup3();
+                        getNewball(2000);
+                        break;
+                    case "ground":
+                            getNewball(500)
+                        break;
+                }
             }
         })
     })
@@ -88,10 +104,13 @@ function mouseReleased() {
 
 
 }
-function getNewball(){
-    World.remove(world, bird.body);
-    bird = new Bird(400, 200, 35);
-    slingshot.attach(bird.body);
+function getNewball(delay){
+    setTimeout(() => {
+        World.remove(world, bird.body);
+        bird = new Bird(width / 4, 200, 35);
+        slingshot.attach(bird.body);    
+    }, delay);
+
 
 }
 function draw() {

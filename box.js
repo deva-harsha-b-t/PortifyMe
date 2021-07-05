@@ -1,5 +1,5 @@
 class Box {
-    constructor(x, y, w, h , boxGroup) {
+    constructor(x, y, w, h , boxGroup, color) {
         switch(boxGroup){
             case 1:this.body = Matter.Bodies.rectangle(x, y, w, h,{
                 labels: "box1"
@@ -17,6 +17,7 @@ class Box {
         
         this.w = w;
         this.h = h;
+        this.color = color
         World.add(world, this.body);
     }
 
@@ -26,7 +27,7 @@ class Box {
         push()
         translate(pos.x, pos.y)
         rotate(angle)
-        fill(255);
+        fill(this.color);
         rectMode(CENTER)
         rect(0, 0, this.w, this.h);
         pop()
