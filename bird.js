@@ -5,7 +5,7 @@ class Bird {
         });
         this.d = d;
         World.add(world, this.body);
-        Matter.Body.setMass(this.body, this.body.mass*8)
+        Matter.Body.setMass(this.body, this.body.mass*2)
 
     }
 

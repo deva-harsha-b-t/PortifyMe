@@ -5,7 +5,6 @@ const overlay = document.getElementById('overlay');
 closeButtons.forEach(button => {
     button.addEventListener('click',()=>{
         const popup = button.closest('.model');
-        console.log(popup)
         closepopup(popup);
     })
 })
@@ -24,13 +23,15 @@ function showpopup3(){
 
 function openpopup(popup){
     if(popup == null) return;
-    popup.classList.add('active');
-    overlay.classList.add('active');
+    setTimeout(()=>{
+        popup.classList.add('active');
+        overlay.classList.add('active');
+    },500);
 }
 
 function closepopup(popup){
     if(popup == null) return;
     popup.classList.remove('active');
     overlay.classList.remove('active');
-        getNewball(200)
+    getNewball(200)
 }

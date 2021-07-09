@@ -7,6 +7,9 @@ a {
   text-decoration: none;
 }
 
+ul {
+  list-style-type: square;
+}
 .top-absolute {
   position: absolute;
   transform: translate(-50%, -50%);
@@ -96,6 +99,7 @@ a {
   cursor: pointer;
 }
 .education-content {
+  padding-right: 8px;
   font-size: 1.2rem;
   color: black;
   background-color: #ffd79d;
@@ -104,6 +108,44 @@ a {
 ul {
   padding-top: 2px;
   padding-bottom: 2px;
+}
+.width50 {
+  width: 50%;
+}
+
+.project-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #320d3e;
+}
+
+.sub-project-card {
+  width: 73%;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  min-height: 100px;
+  border-radius: 10px;
+  background-color: #d902ee;
+  padding: 4px 6px 4px 6px;
+}
+.project-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+.project-points > li {
+  font-size: 1.2rem;
+}
+.github-button {
+  background-color: #ffd79d;
+  border: 0.5px solid black;
+  border-radius: 5px;
+}
+
+.github-button:hover {
+  background-color: #797775;
+  color: #ffffff;
+  border-radius: 8px;
 }
 @media screen and (max-width: 575px) {
   .model-content-education {
@@ -117,5 +159,8 @@ ul {
     font-size: 1rem;
     color: black;
     background-color: #ffd79d;
+  }
+  .width50 {
+    width: 80%;
   }
 }
