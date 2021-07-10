@@ -5,5 +5,6 @@ window.mobileCheck = function() {
 };
 
 if(window.mobileCheck === true){
+    alert("mobile detected");
     window.open("alertMobile.html")
 }
