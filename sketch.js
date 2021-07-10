@@ -12,20 +12,19 @@ let mMouse;
 let mConstraint;
 let slingshot
 const { Engine, World } = Matter
+let projectGround;
+let educationGround;
+let skillsGround;
+
+function preload(){
+    projectGround = loadImage('educationGROUND.png');
+    educationGround = loadImage('skills.png');
+    skillsGround = loadImage('project.png');
+
+}
 
 
-
-function setup() {
-    canvas = createCanvas(innerWidth, innerHeight);
-    engine = Engine.create()
-    world = engine.world;
-    ground = new Ground(width / 2, height - 10, width, 20);
-
-
-    ground1 = new Ground((width - 100 - 50), height - 20 - 50, 200, 20);
-    ground2 = new Ground((width - 100 - 50), height - 200 - 50, 200, 20);
-    ground3 = new Ground((width - 100 - 50), height - 400 - 50, 200, 20);
-
+function setBoxes(){
     for (let i = 0, j = 0; i < 9; i++) {
         if (i != 0 && i % 3 == 0) {
             j++;
@@ -48,6 +47,19 @@ function setup() {
 
     }
 
+}
+function setup() {
+    canvas = createCanvas(innerWidth, innerHeight);
+    engine = Engine.create()
+    world = engine.world;
+    ground = new Ground(width / 2, height - 10, width, 20 , null);
+
+
+    ground1 = new Ground((width - 100 - 50), height - 20 - 50, 200, 20 ,projectGround );
+    ground2 = new Ground((width - 100 - 50), height - 200 - 50, 200, 20,educationGround);
+    ground3 = new Ground((width - 100 - 50), height - 400 - 50, 200, 20,skillsGround);
+
+    setBoxes();
 
     bird = new Bird(width / 4, 200, 35);
     slingshot = new SlingShot(width / 4, 200, bird.body)
@@ -116,10 +128,10 @@ function getNewball(delay){
 function draw() {
     background(0);
     Engine.update(engine);
-    ground.show();
     ground1.show();
     ground2.show();
     ground3.show();
+    ground.show();
     for (let box of box1) {
         box.show();
     }

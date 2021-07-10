@@ -28,7 +28,7 @@ class Box {
         translate(pos.x, pos.y)
         rotate(angle)
         fill(this.color);
-        rectMode(CENTER)
+        rectMode(CENTER);
         rect(0, 0, this.w, this.h);
         pop()
     }
