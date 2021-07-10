@@ -2,6 +2,36 @@ body {
   margin: 0;
   padding: 0;
 }
+
+.nav-bar {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 8px;
+  margin: 2px;
+  border: 2px solid #d902ee;
+}
+.topgap {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+.nav-item {
+  font-size: 1.2rem;
+  border: 2px solid #42cef8;
+  color: #ffffff;
+  background: none;
+  border-radius: 4px;
+  margin-right: 0.5rem;
+  padding: 0.5rem 2px 10 0.5px 2px;
+}
+.nav-item:hover {
+  color: #000000;
+  background: #42cef8;
+  cursor: pointer;
+}
 a {
   color: #000000;
   text-decoration: none;
@@ -12,9 +42,9 @@ ul {
 }
 .top-absolute {
   position: absolute;
-  transform: translate(-50%, -50%);
-  top: 20px;
-  left: 50%;
+  right: 4px;
+  top: 4px;
+  left: 4px;
 }
 .white-text {
   color: white;

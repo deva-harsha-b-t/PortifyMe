@@ -61,8 +61,8 @@ function setup() {
 
     setBoxes();
 
-    bird = new Bird(width / 4, 200, 35);
-    slingshot = new SlingShot(width / 4, 200, bird.body)
+    bird = new Bird(width / 4, height / 2, 35);
+    slingshot = new SlingShot(width / 4, height / 2, bird.body)
     mMouse = Matter.Mouse.create(canvas.elt)
     mMouse.pixelRatio = pixelDensity();
     mConstraint = Matter.MouseConstraint.create(engine, {
@@ -116,13 +116,12 @@ function mouseReleased() {
 
 
 }
-function getNewball(delay){
+function getNewball(delay = 100){
     setTimeout(() => {
         World.remove(world, bird.body);
-        bird = new Bird(width / 4, 200, 35);
+        bird = new Bird(width / 4, height/2, 35);
         slingshot.attach(bird.body);    
     }, delay);
-
 
 }
 function draw() {

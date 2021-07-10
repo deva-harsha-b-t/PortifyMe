@@ -13,7 +13,17 @@
     <title>Deva</title>
 </head>
 <body>
-    <button class="top-absolute" onclick="getNewball()">new ball</button>
+    <div class="top-absolute">
+        <ul class="nav-bar">
+            <li><button class="nav-item" onclick="dropdown()">contact</button></li>
+            <li><button class="nav-item" onclick="openResume()">resume</button></li>
+            <li><button class="nav-item">speed run</button></li>
+        </ul>
+    </div>
+    <div class="topgap">
+        <button class="nav-item" onclick="getNewball()">new ball</button>
+        <button class="nav-item" onclick="resetBoxes()">reset Boxes</button>
+    </div>
     <div class="model" id="popupmodel1">
         <div class="model-heading">
             <div class="model-title">Education </div>
@@ -200,12 +210,12 @@
 
 
     <div id="overlay"></div>
+    <script src="sketch.js"> </script>
     <script src="maincontent.js"></script>
     <script src="box.js"> </script>
     <script src="slingShot.js"> </script>
     <script src="ground.js"> </script>
     <script src="bird.js"> </script>
-    <script src="sketch.js"> </script>
     <script>
         new Glide('.glide').mount()
     </script>

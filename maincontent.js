@@ -35,3 +35,13 @@ function closepopup(popup){
     overlay.classList.remove('active');
     getNewball(200)
 }
+function resetBoxes(){
+        for (let i = 0, j = 0; i < 9; i++) {
+            World.remove(world,[box1[i].body,box2[i].body,box3[i].body]);
+    }
+        setBoxes();  
+}
+
+function openResume(){
+    window.open("https://drive.google.com/drive/folders/15JASTOAvvNg7iQZ-x7xoc7QS5-sYAIdt","_blank");
+}
