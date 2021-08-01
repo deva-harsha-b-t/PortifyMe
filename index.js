@@ -1,6 +1,7 @@
 import * as THREE from 'https://unpkg.com/three@0.126.1/build/three.module.js'
 import gsap from "https://cdn.skypack.dev/gsap"
 
+const popup = document.querySelector("#popupmodel");
 const world = {
   plane: {
     width: 400,
@@ -166,3 +167,14 @@ addEventListener('mousemove', (event) => {
   mouse.x = (event.clientX / innerWidth) * 2 - 1
   mouse.y = -(event.clientY / innerHeight) * 2 + 1
 })
+openpopup(popup);
+function openpopup(popup){
+    if(popup == null) return;
+      popup.classList.add('active');
+
+}
+
+function closepopup(popup){
+    if(popup == null) return;
+    popup.classList.remove('active');
+}
